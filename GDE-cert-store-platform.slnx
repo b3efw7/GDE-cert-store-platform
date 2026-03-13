@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/cert-store-api/cert-store-api.csproj" />
+  </Folder>
+</Solution>
