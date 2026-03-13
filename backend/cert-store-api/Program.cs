@@ -1,3 +1,4 @@
+using cert_store_api.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,11 +15,25 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/api/health", () =>
+app.MapGet("/api/root-certificates", () =>
 {
-    return Results.Ok(new { status = "ok" });
+    var rootCertificates = new List<RootCertificate>
+    {
+        new RootCertificate
+        {
+            Id = Guid.NewGuid(),
+            CommonName = "GDE Root CA",
+            Subject = "CN=GDE Root CA",
+            Issuer = "CN=GDE Root CA",
+            ValidFrom = DateTime.UtcNow,
+            ValidTo = DateTime.UtcNow.AddYears(5),
+            Status = "Active"
+        }
+    };
+
+    return Results.Ok(rootCertificates);
 })
-.WithName("GetHealth");
+.WithName("GetRootCertificates");
 
 app.Run();
 
