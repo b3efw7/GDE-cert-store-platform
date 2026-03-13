@@ -20,4 +20,22 @@ public static class SampleData
             }
         };
     }
+    
+    public static List<UserCertificate> GetUserCertificates()
+    {
+        return new List<UserCertificate>
+        {
+            new UserCertificate
+            {
+                Id = Guid.NewGuid(),
+                CommonName = "GDE Student Certificate",
+                Subject = "CN=GDE Student",
+                Issuer = "CN=GDE Root CA",
+                Email = "student@neptun.gde.hu",
+                ValidFrom = DateTime.UtcNow,
+                ValidTo = DateTime.UtcNow.AddYears(2),
+                Status = "Issued"
+            }
+        };
+    }
 }

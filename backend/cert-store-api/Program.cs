@@ -29,4 +29,10 @@ app.MapGet("/api/root-certificates", () =>
 })
 .WithName("GetRootCertificates");
 
+app.MapGet("/api/user-certificates", () =>
+{
+    return Results.Ok(SampleData.GetUserCertificates());
+})
+.WithName("GetUserCertificates");
+
 app.Run();
