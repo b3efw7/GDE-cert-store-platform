@@ -1,5 +1,4 @@
-using cert_store_api.Models;
-using cert_store_api.Data;
+using cert_store_api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,22 +16,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/api/health", () =>
-{
-    return Results.Ok(new { status = "ok" });
-})
-.WithName("GetHealth");
-
-app.MapGet("/api/root-certificates", () =>
-{
-    return Results.Ok(SampleData.GetRootCertificates());
-})
-.WithName("GetRootCertificates");
-
-app.MapGet("/api/user-certificates", () =>
-{
-    return Results.Ok(SampleData.GetUserCertificates());
-})
-.WithName("GetUserCertificates");
+// Register certificate-related API endpoints.
+app.MapCertificateEndpoints();
 
 app.Run();
