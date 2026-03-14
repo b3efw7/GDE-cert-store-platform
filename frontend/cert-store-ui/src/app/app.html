@@ -1,3 +1,18 @@
 <h1>Certificate Store Platform</h1>
 <p>Frontend application for the GDE B-ALKFET project.</p>
-<p>Current phase: frontend skeleton is running.</p>
+<p>Current phase: frontend-backend connection test.</p>
+
+<h2>Root Certificates</h2>
+
+<!-- Displays the list of root certificates received from the backend API. -->
+<ul>
+  @for (certificate of rootCertificates(); track certificate.id) {
+    <li>
+      <!-- Basic root certificate information shown on the start page. -->
+      <strong>{{ certificate.commonName }}</strong><br>
+      Subject: {{ certificate.subject }}<br>
+      Issuer: {{ certificate.issuer }}<br>
+      Status: {{ certificate.status }}
+    </li>
+  }
+</ul>
