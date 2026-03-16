@@ -16,3 +16,19 @@
     </li>
   }
 </ul>
+
+<h2>User Certificates</h2>
+
+<!-- Displays the list of user certificates received from the backend API. -->
+<ul>
+  @for (certificate of userCertificates(); track certificate.id) {
+    <li>
+      <!-- Basic user certificate information shown on the start page. -->
+      <strong>{{ certificate.commonName }}</strong><br>
+      Subject: {{ certificate.subject }}<br>
+      Issuer: {{ certificate.issuer }}<br>
+      Email: {{ certificate.email }}<br>
+      Status: {{ certificate.status }}
+    </li>
+  }
+</ul>
