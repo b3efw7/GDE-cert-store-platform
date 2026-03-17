@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-backend:
+    name: Build backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore backend dependencies
+        run: dotnet restore ./backend/cert-store-api/cert-store-api.csproj
+
+      - name: Build backend project
+        run: dotnet build ./backend/cert-store-api/cert-store-api.csproj --configuration Release --no-restore
+
+  build-frontend:
+    name: Build frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: ./frontend/cert-store-ui
+
+      - name: Build frontend project
+        run: npm run build
+        working-directory: ./frontend/cert-store-ui
