@@ -1,10 +1,12 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { Certificate } from './services/certificate';
 import { RootCertificate } from './models/root-certificate';
 import { UserCertificate } from './models/user-certificate';
 
 @Component({
   selector: 'app-root',
+  imports: [DatePipe],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

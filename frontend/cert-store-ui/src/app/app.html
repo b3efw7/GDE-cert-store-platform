@@ -1,34 +1,46 @@
 <h1>Certificate Store Platform</h1>
 <p>Frontend application for the GDE B-ALKFET project.</p>
-<p>Current phase: frontend-backend connection test.</p>
+<p>Current phase: MongoDB-backed certificate data display.</p>
 
-<h2>Root Certificates</h2>
+<section class="page-section">
+  <h2>Root Certificates</h2>
 
-<!-- Displays the list of root certificates received from the backend API. -->
-<ul>
-  @for (certificate of rootCertificates(); track certificate.id) {
-    <li>
-      <!-- Basic root certificate information shown on the start page. -->
-      <strong>{{ certificate.commonName }}</strong><br>
-      Subject: {{ certificate.subject }}<br>
-      Issuer: {{ certificate.issuer }}<br>
-      Status: {{ certificate.status }}
-    </li>
+  @if (rootCertificates().length === 0) {
+    <p class="empty-message">No root certificates available.</p>
+  } @else {
+    <div class="card-grid">
+      @for (certificate of rootCertificates(); track certificate.id) {
+        <article class="certificate-card">
+          <h3>{{ certificate.commonName }}</h3>
+          <p><strong>Subject:</strong> {{ certificate.subject }}</p>
+          <p><strong>Issuer:</strong> {{ certificate.issuer }}</p>
+          <p><strong>Valid From:</strong> {{ certificate.validFrom | date:'yyyy-MM-dd' }}</p>
+          <p><strong>Valid To:</strong> {{ certificate.validTo | date:'yyyy-MM-dd' }}</p>
+          <p><strong>Status:</strong> <span class="status">{{ certificate.status }}</span></p>
+        </article>
+      }
+    </div>
   }
-</ul>
+</section>
 
-<h2>User Certificates</h2>
+<section class="page-section">
+  <h2>User Certificates</h2>
 
-<!-- Displays the list of user certificates received from the backend API. -->
-<ul>
-  @for (certificate of userCertificates(); track certificate.id) {
-    <li>
-      <!-- Basic user certificate information shown on the start page. -->
-      <strong>{{ certificate.commonName }}</strong><br>
-      Subject: {{ certificate.subject }}<br>
-      Issuer: {{ certificate.issuer }}<br>
-      Email: {{ certificate.email }}<br>
-      Status: {{ certificate.status }}
-    </li>
+  @if (userCertificates().length === 0) {
+    <p class="empty-message">No user certificates available.</p>
+  } @else {
+    <div class="card-grid">
+      @for (certificate of userCertificates(); track certificate.id) {
+        <article class="certificate-card">
+          <h3>{{ certificate.commonName }}</h3>
+          <p><strong>Subject:</strong> {{ certificate.subject }}</p>
+          <p><strong>Issuer:</strong> {{ certificate.issuer }}</p>
+          <p><strong>Email:</strong> {{ certificate.email }}</p>
+          <p><strong>Valid From:</strong> {{ certificate.validFrom | date:'yyyy-MM-dd' }}</p>
+          <p><strong>Valid To:</strong> {{ certificate.validTo | date:'yyyy-MM-dd' }}</p>
+          <p><strong>Status:</strong> <span class="status">{{ certificate.status }}</span></p>
+        </article>
+      }
+    </div>
   }
-</ul>
+</section>
