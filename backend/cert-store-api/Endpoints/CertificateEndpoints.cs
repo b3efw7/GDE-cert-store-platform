@@ -1,4 +1,3 @@
-using cert_store_api.Data;
 using cert_store_api.Services;
 using MongoDB.Driver;
 
