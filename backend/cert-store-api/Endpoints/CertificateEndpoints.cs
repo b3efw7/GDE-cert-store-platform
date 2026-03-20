@@ -1,4 +1,6 @@
 using cert_store_api.Data;
+using cert_store_api.Services;
+using MongoDB.Driver;
 
 namespace cert_store_api.Endpoints;
 
@@ -14,18 +16,30 @@ public static class CertificateEndpoints
         })
         .WithName("GetHealth");
 
-        // Returns sample root certificate data.
-        app.MapGet("/api/root-certificates", () =>
+        // Returns root certificate data from MongoDB.
+        app.MapGet("/api/root-certificates", async (MongoDbService mongoDbService) =>
         {
-            return Results.Ok(SampleData.GetRootCertificates());
+            var rootCertificates = await mongoDbService.RootCertificates
+                .Find(_ => true)
+                .ToListAsync();
+
+            return Results.Ok(rootCertificates);
         })
         .WithName("GetRootCertificates");
 
-        // Returns sample user certificate data.
-        app.MapGet("/api/user-certificates", () =>
+        // Returns user certificate data from MongoDB.
+        app.MapGet("/api/user-certificates", async (MongoDbService mongoDbService) =>
         {
-            return Results.Ok(SampleData.GetUserCertificates());
+            var userCertificates = await mongoDbService.UserCertificates
+                .Find(_ => true)
+                .ToListAsync();
+
+            return Results.Ok(userCertificates);
         })
         .WithName("GetUserCertificates");
+
     }
 }
+
+
+        

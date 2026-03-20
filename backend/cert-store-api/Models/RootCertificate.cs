@@ -2,7 +2,7 @@ namespace cert_store_api.Models;
 
 public class RootCertificate
 {
-    public Guid Id { get; set; }
+    public string Id { get; set; } = string.Empty;
 
     public string CommonName { get; set; } = string.Empty;
 
