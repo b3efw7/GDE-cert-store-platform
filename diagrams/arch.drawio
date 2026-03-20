@@ -1,0 +1,107 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="arch-page">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="a1" value="DATABASE&lt;br&gt;(MongoDB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#66ff66;strokeColor=#2D7600;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="40" width="280" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a2" value="BACKEND&lt;br&gt;(ASP.NET Core / C#)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b25e;strokeColor=#8B5A00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="300" height="180" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a3" value="MongoDb Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="220" width="100" height="45" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a4" value="Certificate API&lt;br&gt;(Root + User endpoints)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="245" y="220" width="115" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a5" value="Seed / Config" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="100" y="295" width="100" height="45" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a6" value="FRONTEND&lt;br&gt;(Angular)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b25e;strokeColor=#8B5A00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="410" width="300" height="130" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a7" value="Certificate View&lt;br&gt;(cards / lists)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#7c3f4b;fontColor=#ffffff;strokeColor=#7c3f4b;" vertex="1" parent="1">
+          <mxGeometry x="250" y="450" width="110" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a8" value="PLATFORM / DELIVERY" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b25e;strokeColor=#8B5A00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="300" height="520" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a9" value="GitHub Actions&lt;br&gt;(CI)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="570" y="80" width="160" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a10" value="Dockerfiles +&lt;br&gt;Docker images" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="570" y="165" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a11" value="GHCR&lt;br&gt;(Container Registry)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="570" y="255" width="160" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a12" value="Kubernetes&lt;br&gt;manifests" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="570" y="340" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a13" value="Helm chart&lt;br&gt;(MongoDB)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="570" y="430" width="160" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a14" value="ArgoCD&lt;br&gt;(Application Sync)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1f3556;fontColor=#ffffff;strokeColor=#1f3556;" vertex="1" parent="1">
+          <mxGeometry x="570" y="515" width="160" height="55" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a15" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="600" width="40" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a3" target="a1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a5" target="a3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="HTTP/JSON API" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" edge="1" parent="1" source="a6" target="a2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a15" target="a7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a2" target="a10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a6" target="a10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a10" target="a11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a2" target="a12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a6" target="a12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a1" target="a13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a12" target="a14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a13" target="a14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
